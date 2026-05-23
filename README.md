@@ -41,16 +41,18 @@ Both scripts generate 2D planar meshes in an ABAQUS (.inp) format compatible wit
 1. Default Mesh: JetRIS_verysimp_ap_new.inp (from Newaperture_mesh.jl)
 A simplified, sharp-cornered block domain scaling structures via centimeter adjustments. It features targeted local path refinements near the aperture boundary (ref_ap) and wall boundaries (ref_walljetchamber).
 
-2. Alternative Complex Mesh: JetRIS_verysimp_ap5.inp (from JetRIS_verysimp_ap5.jl) 
+2. Alternative Complex Mesh: JetRIS_verysimp_ap5.inp (from JetRIS_verysimp_ap5.jl)
 A complex, curved-funnel mesh tracking customized circular arcs to smooth out the entry throat geometry. This mesh has problems with elongation of the domain.
 
 Mesh Configuration Warning:
+
 If you switch the simulation script to use JetRIS_verysimp_ap5.inp, you must completely map the updated boundary dictionaries (my_boundary_conditions and my_bcs_parabolic). 
 Every named geometric edge segment created by HOHQMesh must match a valid boundary routine assignment in Trixi, or the initialization loop will fail.
 
 ---
 
-How to Run the Simulations
+How to Run the Simulations:
+
 Ensure your Julia environment has the required packages installed. Open your Julia REPL and run:
 using Pkg
 Pkg.add(["Trixi", "OrdinaryDiffEq", "StaticArrays", "OrdinaryDiffEqLowStorageRK", "OrdinaryDiffEqSSPRK", "Trixi2Vtk", "LinearAlgebra", "GLMakie", "HOHQMesh"])
